@@ -8,6 +8,7 @@ make clean
 make all
 ```
 
+
 To delete executables and object files, type:
 
 ```bash
@@ -27,3 +28,7 @@ To run with a given file that is redirected to standard input:
 ```bash
 ./test_points3d < test_input_file.txt
 ```
+one issue i had was in the copy constructor , when i tried to set the first index of sequence into std::array.
+I did this so i can copy the std::array being passed to this point.
+My problem was that the copy wasn't happening in the for loop and i was getting some garbage values in the watch.
+after stepping into  I noticed I didnt refrence the point which wasn't allowing the copy.
