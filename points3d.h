@@ -35,7 +35,7 @@ class Points3D {
         size_=rhs.size_;
         sequence_= new std::array<Object, 3>[rhs.size_];
         //std::array<Object, 3> point;
-        int k=0;
+        size_t k=0;
         while (k < rhs.size()){   //k is a variable for first [] index for bigger sequence to access the arrays inside
             sequence_[k][0] = rhs[k][0];  //copy rhs to contents to sequence
             sequence_[k][1] = rhs[k][1];
@@ -125,7 +125,7 @@ class Points3D {
     //  @return their sum. If the sequences are not of the same size, append the
     //    result with the remaining part of the larger sequence.
     friend Points3D operator+(const Points3D &c1, const Points3D &c2) {
-        int maxSize ,minSize;
+        size_t maxSize ,minSize;
         maxSize=std::max(c1.size(),c2.size()); //finds max size if one is bigger
         minSize=std::min(c1.size(),c2.size()); //finds min size if one is smaller
 
@@ -158,7 +158,7 @@ class Points3D {
 
     // Overloading the << operator.
     friend std::ostream &operator<<(std::ostream &out, const Points3D &some_points) {
-        for (int i=0;i<some_points.size();i++){ //loops through size
+        for (size_t i=0;i<some_points.size();i++){ //loops through size
             out<<"(";   //shows parenthesis
             out<<some_points[i][0];// prints the index of our sequence and  index of the std::array,// loops through size of sequence and prints all [0][1][3] of that sequence
             out<<", ";
